@@ -21,7 +21,7 @@ public class Main extends Application {
     private NetworkConnection connection = isServer ? createServer() : createClient();
 
     private Parent createContent() {
-        messages.setPrefHeight(550);
+        messages.setPrefHeight(750);
         TextField input = new TextField();
         input.setOnAction(event -> {
             String message = isServer ? "Server: " : "Client: ";
@@ -38,8 +38,8 @@ public class Main extends Application {
             }
         });
 
-        VBox root = new VBox(20, messages, input);
-        root.setPrefSize(600,600);
+        VBox root = new VBox(40, messages, input);
+        root.setPrefSize(500,500);
         return root;
     }
     @Override
@@ -50,7 +50,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
-        primaryStage.setTitle("Hello World");
+        primaryStage.setTitle("Chat Server/Client");
         primaryStage.setScene(new Scene(createContent()));
         primaryStage.show();
     }
