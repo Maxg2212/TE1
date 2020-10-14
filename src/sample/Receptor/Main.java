@@ -9,10 +9,14 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import sample.Emisor.Client;
 //Se debe permitir el parallel run del main para que funcione.
 
 public class Main extends Application {
+
+    private static Logger log = LoggerFactory.getLogger(Main.class);
 
     private boolean isServer = true; //True para abrir Server y false para abrir Client
 
@@ -40,6 +44,7 @@ public class Main extends Application {
                 connection.send(message);
             }
             catch (Exception e) {
+                log.error(e.getMessage(), e);  // log de error
                 messages.appendText("Failed to send\n");
             }
         });
