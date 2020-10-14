@@ -2,20 +2,22 @@ package sample.Emisor;
 
 import javafx.application.Application;
 import javafx.application.Platform;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Control;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import sample.Receptor.NetworkConnection;
 import sample.Receptor.Server;
 //Se debe permitir el parallel run del main para que funcione.
 
 
 public class MainE extends Application {
+
+    private static Logger log = LoggerFactory.getLogger(MainE.class);
 
     private boolean isServer = false; //True para abrir Server y false para abrir Client
 
@@ -40,7 +42,9 @@ public class MainE extends Application {
                 connection.send(message);
             }
             catch (Exception e) {
+                log.error(e.getMessage(), e);   // log de error
                 messages.appendText("Failed to send\n");
+
             }
         });
 

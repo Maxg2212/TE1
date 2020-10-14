@@ -1,5 +1,8 @@
 package sample.Emisor;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
@@ -8,6 +11,8 @@ import java.net.Socket;
 import java.util.function.Consumer;
 
 public abstract class NetworkConnectionE {
+
+    private static Logger log = LoggerFactory.getLogger(MainE.class);
 
     private ConnectionThread connThread = new ConnectionThread();
     private Consumer<Serializable> onReceiveCallback;
@@ -85,6 +90,7 @@ public abstract class NetworkConnectionE {
                 }
             }
             catch (Exception e) {
+                log.info(e.getMessage(), e); // log de info
                 onReceiveCallback.accept("Connection closed");
 
             }

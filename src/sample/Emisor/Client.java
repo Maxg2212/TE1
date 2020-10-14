@@ -1,11 +1,16 @@
 package sample.Emisor;
 
+import org.slf4j.LoggerFactory;
 import sample.Receptor.NetworkConnection;
 
 import java.io.Serializable;
 import java.util.function.Consumer;
+import java.util.logging.Logger;
 
 public class Client extends NetworkConnection {
+
+
+
 
     private String ip;
     private int port;
