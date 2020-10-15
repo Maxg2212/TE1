@@ -39,7 +39,10 @@ public class MainE extends Application {
             messages.appendText(message + "\n");
 
             try {
+                log.debug("Enviando mensaje..");
+
                 connection.send(message);
+                log.debug("Mensaje enviado..");
             }
             catch (Exception e) {
                 log.error(e.getMessage(), e);   // log de error
