@@ -4,6 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import sample.Emisor.MainE;
 
+import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
@@ -43,8 +44,13 @@ public abstract class NetworkConnection {
      * @throws Exception se predicen posibles errores no contemplados a la hora de programar.
      */
 
-    public void send(Serializable data) throws Exception {
-        connThread.out.writeObject(data);
+    public void send(Serializable data) {
+        try {
+            connThread.out.writeObject(data);
+        } catch (IOException e) {
+            log.error(e.getMessage(), e);
+
+        }
 
     }
 
@@ -54,7 +60,11 @@ public abstract class NetworkConnection {
      */
 
     public void closeConnection()throws Exception {
-        connThread.socket.close();
+        try {
+            connThread.socket.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
 

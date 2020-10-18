@@ -38,7 +38,7 @@ public class MainE extends Application {
             input.clear();
             log.debug("Mesnaje enviado!");
 
-            messages.appendText(message + "\n");
+                messages.appendText(message + "\n");
 
             try {
                 connection.send(message);
