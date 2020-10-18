@@ -33,8 +33,11 @@ public abstract class NetworkConnectionE {
      */
 
     public void startConnection() throws Exception {
-        connThread.start();
-
+        try {
+            connThread.start();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     /***

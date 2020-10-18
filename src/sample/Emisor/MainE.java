@@ -11,6 +11,7 @@ import javafx.stage.Stage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import sample.Receptor.NetworkConnection;
+
 import sample.Receptor.Server;
 //Se debe permitir el parallel run del main para que funcione.
 

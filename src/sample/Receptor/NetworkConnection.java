@@ -34,8 +34,11 @@ public abstract class NetworkConnection {
      */
 
     public void startConnection() throws Exception {
-        connThread.start();
-
+        try {
+            connThread.start();
+        } catch (Exception e) {
+            log.error(e.getMessage(), e);
+        }
     }
 
     /***
@@ -63,7 +66,8 @@ public abstract class NetworkConnection {
         try {
             connThread.socket.close();
         } catch (IOException e) {
-            e.printStackTrace();
+            log.error(e.getMessage(),e);
+
         }
 
     }
