@@ -34,7 +34,9 @@ public class MainE extends Application {
         input.setOnAction(event -> {
             String message = isServer ? "Persona1: " : "Persona2: ";
             message += input.getText();
+            log.debug("Enviando mensaje...");
             input.clear();
+            log.debug("Mesnaje enviado!");
 
             messages.appendText(message + "\n");
 
