@@ -12,7 +12,7 @@ import java.util.function.Consumer;
 
 public abstract class NetworkConnectionE {
 
-    private static Logger log = LoggerFactory.getLogger(MainE.class);
+    private static Logger log = LoggerFactory.getLogger(NetworkConnectionE.class);
 
     private ConnectionThread connThread = new ConnectionThread();
     private Consumer<Serializable> onReceiveCallback;
